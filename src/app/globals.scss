@@ -1,0 +1,27 @@
+@use "../components/variables" as v;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+#root {
+  display: grid;
+  min-height: 100vh;
+  background-color: v.$background-color;
+  color: v.$text-color;
+  padding: 2rem;
+  max-width: 1500px;
+  font-family: v.$primary-font;
+}
+html {
+  background-color: v.$background-color;
+  display: flex;
+  justify-content: center;
+  scroll-behavior: smooth;
+}
+::-webkit-scrollbar {
+  //display: none;
+}
