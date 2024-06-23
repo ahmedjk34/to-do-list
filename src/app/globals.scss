@@ -9,19 +9,29 @@
 }
 #root {
   display: grid;
-  min-height: 100vh;
+  grid-template: 5rem 1fr 5rem / 1fr;
+  gap: 1rem;
   background-color: v.$background-color;
   color: v.$text-color;
-  padding: 2rem;
-  max-width: 1500px;
+  max-width: 1000px;
+  min-width: 50vw;
+  width: 100%;
   font-family: v.$primary-font;
+  border-radius: 2rem;
+  padding: 2.5rem;
+  height: calc(100vh - 4rem);
+  box-shadow: 12px 16px 0 v.$secondary-color;
+  overflow: hidden;
 }
 html {
-  background-color: v.$background-color;
+  background-color: white;
   display: flex;
+  height: 100%;
+  align-items: center;
   justify-content: center;
   scroll-behavior: smooth;
 }
+
 ::-webkit-scrollbar {
   //display: none;
 }
