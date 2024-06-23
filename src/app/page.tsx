@@ -6,38 +6,27 @@ import { ToDoType } from "./Types";
 import TodoCard from "@/components/to-do-card/TodoCard";
 
 export default function Home() {
-  const [toDo, setToDo] = useState<toDo[]>([]);
+  const [toDo, setToDo] = useState<ToDoType[]>([]);
   useEffect(() => {
     (async function () {
-      const testTodo: toDo[] = [
-        {
-          title: "Test1",
-          text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-        },
-        {
-          title: "Test2",
-          text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-        },
-      ];
-      setToDo(testTodo);
       try {
-        // testTodo.forEach((todo) =>
-        //   axios.post("http://localhost:3000/api/to-do", {
-        //     title: todo.title,
-        //     text: todo.text,
-        //   })
-        // );
         const response = await axios.get("http://localhost:3000/api/to-do");
-        console.log(response);
+        console.log(response.data);
+        setToDo(response.data);
       } catch (e) {
         console.log(e);
       }
     })();
   }, []);
   return (
-    <div>
+    <div className={styles.main}>
       {toDo.map((todo, index) => (
-        <TodoCard title={todo.title} text={todo.text} key={`${index} todo`} />
+        <TodoCard
+          title={todo.title}
+          text={todo.text}
+          _id={todo._id}
+          key={`${index} todo`}
+        />
       ))}
     </div>
   );

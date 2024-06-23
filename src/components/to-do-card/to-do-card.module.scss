@@ -1,0 +1,51 @@
+@use "../variables" as v;
+.card {
+  display: flex;
+  width: 100%;
+  padding: 1.5rem;
+  box-shadow: 2px 6px 0px v.$accent-color;
+  border-radius: 1rem;
+  position: relative;
+  transition: transform 0.3s ease-in-out;
+  &::after {
+    content: "";
+    z-index: 0;
+    display: block;
+    box-shadow: -2px -3px 0px v.$accent-color;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    border-radius: inherit;
+    top: 0;
+    left: 0;
+  }
+
+  //because the after element needs to be zero or above, and we want everting to be focus-able
+  * {
+    z-index: 1;
+  }
+  .textHolder {
+    width: 100%;
+    .title {
+    }
+    .text {
+    }
+  }
+
+  .icons {
+    width: 8rem;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    align-items: flex-start;
+    * {
+      transition: all 0.2s linear;
+      &:hover {
+        opacity: 0.7;
+        cursor: pointer;
+        transform: translateY(3px);
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+@use "../../components/variables" as v;
+.holder {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  h2 {
+    font-family: v.$secondary-font;
+  }
+  input,
+  textarea {
+    height: 2rem;
+    font-size: large;
+    border: none;
+    outline: none;
+    border-radius: 0.25rem;
+    box-shadow: 2px 4px 0 v.$accent-color;
+  }
+  textarea {
+    resize: none;
+    width: 100%;
+    height: 100%;
+  }
+  button {
+    width: 8rem;
+    padding: 0.5rem;
+    font-size: large;
+    background-color: v.$secondary-color;
+    outline: none;
+    border: none;
+    border-radius: 2rem;
+    cursor: pointer;
+  }
+}

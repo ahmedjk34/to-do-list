@@ -14,15 +14,33 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   await connectDB();
   try {
-    const { title, text } = await request.json();
+    const { title, text, id } = await request.json();
+    console.log(id);
     toDoModel.create({
       title: title,
       text: text,
+      todoId: id,
     });
-    console.log(title);
     return new NextResponse("Done", {
       status: 201,
     });
+  } catch (err: any) {
+    NextResponse.json({ error: err.message });
+  }
+}
+
+export async function DELETE(request: NextRequest) {
+  await connectDB();
+  const { _id } = await request.json();
+  try {
+    const result = await toDoModel.findByIdAndDelete(_id);
+    if (result) {
+      return new NextResponse("Document deleted", { status: 200 });
+    } else {
+      return new NextResponse("No document found with that ID", {
+        status: 404,
+      });
+    }
   } catch (err: any) {
     NextResponse.json({ error: err.message });
   }
