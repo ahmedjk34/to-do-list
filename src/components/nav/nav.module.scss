@@ -1,0 +1,23 @@
+@use "../variables" as v;
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 5rem;
+  font-family: v.$secondary-font;
+  button {
+    background-color: v.$secondary-color;
+    padding: 1rem;
+    color: white;
+    border: none;
+    outline: none;
+    border-radius: 0.5rem;
+    font-family: inherit;
+    transition: all 0.25s ease-in-out;
+    &:hover {
+      transform: translateY(2px);
+      background-color: v.$accent-color;
+      cursor: pointer;
+    }
+  }
+}
