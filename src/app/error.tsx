@@ -1,8 +1,9 @@
+"use client";
 import React from "react";
 
 type Props = {};
 
-function Loading({}: Props) {
+function Error({}: Props) {
   return (
     <div
       style={{
@@ -14,9 +15,9 @@ function Loading({}: Props) {
         alignItems: "center",
       }}
     >
-      loading
+      Error Page
     </div>
   );
 }
 
-export default Loading;
+export default Error;

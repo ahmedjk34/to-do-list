@@ -8,7 +8,7 @@ export async function GET(request: NextRequest) {
     const toDos = await toDoModel.find({});
     return NextResponse.json(toDos);
   } catch (err: any) {
-    NextResponse.json({ error: err.message });
+    return NextResponse.json({ error: err.message });
   }
 }
 export async function POST(request: NextRequest) {
@@ -25,7 +25,7 @@ export async function POST(request: NextRequest) {
       status: 201,
     });
   } catch (err: any) {
-    NextResponse.json({ error: err.message });
+    return NextResponse.json({ error: err.message });
   }
 }
 
@@ -42,6 +42,6 @@ export async function DELETE(request: NextRequest) {
       });
     }
   } catch (err: any) {
-    NextResponse.json({ error: err.message });
+    return NextResponse.json({ error: err.message });
   }
 }
